@@ -23,7 +23,10 @@
 			var $optionsName = 'NewsTweetOptions';
 
 			var $optionsDefaults = array(
-				'searchterm' => ''
+				'searchterm' => '',
+				'rpp' => '',
+				'title' => '',
+				'tweetit' => ''
 			);
 
 			//-----------------------------------------
@@ -78,9 +81,13 @@
 
 					$options = $NewsTweetInstance->getOptions();
 					$_searchterm = $options['searchterm'];
+					$_rpp = $options['rpp'];
+					$_ttl = $options['title'];
+					$_tweetit = $options['tweetit'];
 
 					echo $before_widget;
-					echo $before_title . $title . $after_title;
+					echo $before_title.$_ttl.$after_title;
+					
 
 ?>
 
@@ -89,6 +96,7 @@
 				
 				NewsTweetAjaxUrl = '<?php echo($NewsTweetInstance->pluginPath).'/newstweet-ajax.php';?>';
 				NewsTweetSearchterm = '<?php echo($_searchterm)?>';
+				NewsTweetRpp = '<?php echo($_rpp)?>';
 
 				gotoPoll();
 				if(si){clearInterval(si);}
@@ -99,11 +107,13 @@
 </script>
 
 <div id="newstweet-container">
-	<div id="newstweet-header">Realtime results for <em>"<?php echo($_searchterm);?>"</em> on Twitter:</div>
+	<!--<div id="newstweet-header">Realtime <em>"<?php echo(stripslashes($_searchterm));?>"</em> on Twitter:</div>-->
 	<div id="twitterwrapper">
 	</div>
 	<div class="newstweet-clear"></div>
-	<p class="newstweet-viewall"><a href="http://search.twitter.com/search?q=<?php echo(urlencode($_searchterm));?>" target="_blank">View All</a> <a href="http://twitter.com/home?status=<?php echo(urlencode($_searchterm));?>" target="_blank">Tweet It</a></p>
+	<p class="newstweet-viewall"><a href='http://search.twitter.com/search?q=<?php echo(urlencode(stripslashes($_searchterm)));?>' target="_blank">View All</a>
+		<?php if($options['tweetit'] == 'yes'){ echo '<a href="http://twitter.com/home?status='.$_searchterm.'" target="_blank">Tweet It</a>'; } ?>
+	</p>
 	<div class="newstweet-clear"></div>
 </div>
 
@@ -123,14 +133,26 @@
 						if (get_magic_quotes_gpc()) {
 						}
 						$options['searchterm'] = $_POST['NewsTweet-searchterm'];
+						$options['rpp'] = $_POST['NewsTweet-rpp'];
+						$options['title'] = stripslashes($_POST['NewsTweet-title']);
+						$options['tweetit'] = $_POST['NewsTweet-tweetit'];
 
 						update_option($NewsTweetInstance->optionsName, $options);
 
 					}
 ?>
 			<p style="text-align:left;">
-			<label for="NewsTweet-searchterm">Search term
-			<input style="width: 200px;" id="NewsTweet-searchterm" name="NewsTweet-searchterm" type="text" value="<?php echo $options['searchterm'];?>" />
+			<label for="NewsTweet-title">Widget Title<br/>
+			<input style="width: 280px;" id="NewsTweet-title" name="NewsTweet-title" type="text" value="<?php echo $options['title'];?>" />
+			</label>
+			<label for="NewsTweet-searchterm">Search Term<br/>
+			<textarea style="width: 280px;" id="NewsTweet-searchterm" name="NewsTweet-searchterm"><?php echo stripslashes($options['searchterm']);?></textarea>
+			</label>
+			<label for="NewsTweet-rpp" style="line-height:26px;">Results 
+			<select style="width:50px;margin-right:20px;" id="NewsTweet-rpp" name="NewsTweet-rpp"><option value="1" <?php if($options['rpp'] == '1'){ echo 'selected'; } ?> >1</option><option value="2" <?php if($options['rpp'] == '2'){ echo 'selected'; } ?>>2</option><option value="3" <?php if($options['rpp'] == '3'){ echo 'selected'; } ?>>3</option><option value="4" <?php if($options['rpp'] == '4'){ echo 'selected'; } ?> >4</option><option value="5" <?php if($options['rpp'] == '5'){ echo 'selected'; } ?> >5</option><option value="6" <?php if($options['rpp'] == '6'){ echo 'selected'; } ?> >6</option><option value="7" <?php if($options['rpp'] == '7'){ echo 'selected'; } ?> >7</option><option value="8" <?php if($options['rpp'] == '8'){ echo 'selected'; } ?> >8</option><option value="9" <?php if($options['rpp'] == '9'){ echo 'selected'; } ?> >9</option><option value="10" <?php if($options['rpp'] == '10'){ echo 'selected'; } ?> >10</option></select>
+			</label>
+			<label for="NewsTweet-tweetit" style="line-height:26px;">Show "Tweet It" 
+			<select style="width:50px;margin-right:20px;" id="NewsTweet-tweetit" name="NewsTweet-tweetit"><option value="yes" <?php if($options['tweetit'] == 'yes'){ echo 'selected'; } ?> >Yes</option><option value="no" <?php if($options['tweetit'] == 'no'){ echo 'selected'; } ?>>No</option></select>
 			</label>
 			</p>
 

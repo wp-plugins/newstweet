@@ -1,4 +1,6 @@
 #newstweet-container{
+	float:left;
+	width:100%;
 	background: transparent;
 	text-align:center;
 	margin:0px;
@@ -13,7 +15,7 @@ div#newstweet-header em{color:#5A812E; font-style:normal;} /* Highlights the sea
 #newstweet-container div#twitterwrapper{float:left; width:auto; margin:0px auto; padding:0px; text-align:center;} /* Container where the posts are displayed */
 
 #newstweet-container div#tweetholder{float:left; margin:0 auto; padding:0px;} /* Interior container where the posts are displayed */
-div.tweet{float:left; margin:0px 0px 5px 0px; padding:10px; text-align:left; border:1px solid #e1e1e1; display:none;} /* Boxes where each post is displayed */
+div.tweet{float:left;margin:0px 0px 5px 0px; padding:10px; text-align:left; border:1px solid #e1e1e1; display:none;} /* Boxes where each post is displayed */
 
 #newstweet-container img.avatar{float:left; margin:0px 10px 0px 0px; padding:2px; width:24px; height:24px; background:#fff; border:1px solid #e1e1e1;} /* Resize the avatar - Standard size is 48 x 48 */
 #newstweet-container p.posted{float:left; margin:0px;} /* Style for the text that displays who posted the tweet */

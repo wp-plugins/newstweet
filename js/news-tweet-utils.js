@@ -22,7 +22,7 @@ String.prototype.linktag=function(){
 
 //function shows the poll screen
 function gotoPoll(){
-	var pars = 'searchterm=' + NewsTweetSearchterm;
+	var pars = 'searchterm=' + NewsTweetSearchterm+ '&rpp=' + NewsTweetRpp;
 	jQuery.ajax({
 	   type: "POST",
 	   url: NewsTweetAjaxUrl,
@@ -36,6 +36,8 @@ function gotoPoll(){
 				//container innerHTML
 				var html = '<div id="tweetholder">';
 				
+				
+				
 				//loop thru all results ----------------
 				for(i=0;i<myObj.results.length;i++){
 				
@@ -48,6 +50,7 @@ function gotoPoll(){
 				var thedatestr=months[thedate.getMonth()]+' '+thedate.getDate()+' @ '+hours+':'+minutes+' '+ampm;
 				
 				
+				
 					if(tweets[myObj.results[i].id]){
 					
 					html += '<div id="'+myObj.results[i].id+'" class="tweet x">';
@@ -57,13 +60,13 @@ function gotoPoll(){
 					html += '</div>';
 					
 					} else {
-					
+		
 					html += '<div id="'+myObj.results[i].id+'" class="tweet '+i+'">';
 					html += '<p class="posttext"><em>&ldquo;'+myObj.results[i].text.linkify().linkuser()+'&rdquo;</em></p>';
 					html += '<img class="avatar" src="'+myObj.results[i].profile_image_url+'" alt="'+myObj.results[i].from_user+'" />';
 					html += '<p class="posted"><a href="http://www.twitter.com/'+myObj.results[i].from_user+'" target="_blank">'+myObj.results[i].from_user+'</a><br/><span class="date">'+thedatestr+'</span></p>';
 					html += '</div>';
-					
+				
 					}
 					
 					//push the IDs
@@ -83,7 +86,15 @@ function gotoPoll(){
       			
       			jQuery(".0").fadeIn(2000);
       			jQuery(".1").fadeIn(1250);
-      			jQuery(".2").fadeIn(500);
+      			jQuery(".2").fadeIn(1500);
+                jQuery(".3").fadeIn(1250);
+                jQuery(".4").fadeIn(1000);
+                jQuery(".5").fadeIn(750);
+                jQuery(".6").fadeIn(500);
+                jQuery(".7").fadeIn(250);
+                jQuery(".8").fadeIn(100);
+                jQuery(".9").fadeIn(50);
+                        
       			
       			
     			}); // end init

@@ -46,3 +46,14 @@ Not really but you can always email me at tim@thisistim.biz.
 
 Me, Tim Resudek, and my brother, Todd Resudek. We are freelance designers/programmers that built this plugin in our spare time. My portfolio is online at http://www.thisistim.biz, Todd's is at http://www.tr1design.net.
 
+== New Features ==
+
+= v1.1 =
+
+1. Search terms are now it a textarea so ling strings are easier to read
+2. Title field
+3. Option to turn off "Tweet It" button
+4. Option to select 1-10 results (formerly hard-coded to 3)
+5. Cleaned up url encoding and slash (/) issues
+
+
