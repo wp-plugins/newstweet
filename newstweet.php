@@ -3,7 +3,7 @@
  * Plugin Name: NewsTweet
  * Plugin URI: http://www.thisistim.biz/newstweet
  * Description: Set a keyword or phrase and NewsTweet constantly pulls twitter posts containing that word or phrase. Useful for bands or anyone with a specific focus for their blog. NewsTweet uses AJAX and the Twitter API so your content stays fresh without the need to refresh the page.
- * Version: 1.0
+ * Version: 1.1
  * License: GPL
  * Author: Tim Resudek & Todd Resudek
  * Author URI: http://www.thisistim.biz
