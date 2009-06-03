@@ -50,7 +50,7 @@ Me, Tim Resudek, and my brother, Todd Resudek. We are freelance designers/progra
 
 = v1.1 =
 
-1. Search terms are now it a textarea so long strings are easier to read
+1. Search terms are now in a textarea so long strings are easier to read
 2. Title field
 3. Option to turn off "Tweet It" button
 4. Option to select 1-10 results (formerly hard-coded to 3)
