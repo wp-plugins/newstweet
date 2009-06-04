@@ -3,8 +3,7 @@ Contributors: thisistim
 Tags: twitter, sidebar, ajax
 Requires at least: 2.0.4
 Tested up to: 2.7
-Stable tag: 1.1
-
+Stable tag: trunk
 Set a keyword or phrase and NewsTweet constantly pulls twitter posts containing that word or phrase.
 
 == Description ==
